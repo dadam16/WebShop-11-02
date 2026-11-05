@@ -6,52 +6,54 @@
     <title>Document</title>
 </head>
 <body>
+    
+    <% if (locals.success) { %>
+            <p style="color: darkgreen">Device added!</p>
+        <% } %>
     <form method="post">
-        <label>
-            <input type="radio" name="termek" value="szamitogep">
-            Számítógép
-            <a href="../public/szamitogep.jpeg"></a>
-        </label>
-        <label>
-            <input type="radio" name="termek" value="laptop">
-            Laptop
-            <a href="../public/laptop.jfif"></a>
-        </label>
-        <label>
-            <input type="radio" name="termek" value="konzol">
-            Konzol
-            <a href="../public/Xbox-Series-X.jpg"></a>
-        </label><br>
+        
 
-        <input type="text" name="nev" placeholder="Név"><br>
+        <input type="text" name="nev" placeholder="Név" ><br>
         <label>
             Számlázási cím <br>
-            <input type="text" name="orszag" placeholder="Ország"><br>
+            <input type="text" name="orszag" placeholder="Ország" va><br>
             <input type="number" name="iranyitoszam" placeholder="Irányítószám"><br>
-            <input type="text" name="varos" placeholder="Város"><br>
-            <input type="text" name="utca" placeholder="Utca"><br>
-            <input type="number" name="hazszam" placeholder="Házszám">
+            <input type="text" name="varos" placeholder="Város" v><br>
+            <input type="text" name="utca" placeholder="Utca" ><br>
+            <input type="number" name="hazszam" placeholder="Házszám" val>
 
-        </label><br>
-        <label>
+        
+        <label><br>
             Számlázási cím <br>
-            <input type="text" name="orszag" placeholder="Ország"><br>
+            <input type="text" name="orszag" placeholder="Ország" va><br>
             <input type="number" name="iranyitoszam" placeholder="Irányítószám"><br>
-            <input type="text" name="varos" placeholder="Város"><br>
-            <input type="text" name="utca" placeholder="Utca"><br>
-            <input type="number" name="hazszam" placeholder="Házszám">
+            <input type="text" name="varos" placeholder="Város" v><br>
+            <input type="text" name="utca" placeholder="Utca" ><br>
+            <input type="number" name="hazszam" placeholder="Házszám" >
 
         </label><br>
         
-        
-        <input type="text" name="kuponkod" placeholder="Kuponkód"><br>
+        <label>
+            Kupon <br>
+            <input type="text" name="kuponkod" placeholder="Kuponkód" ><br>
+        </label>
+
         <label>
             Bankkártya adatok <br>
             <input type="text" name="bankkartyaszam" placeholder="Bankkártyaszám"><br>
             <input type="text" name="lejaratidatum" placeholder="Lejárati dátum"><br>
             <input type="number" name="biztonsagikod" placeholder="Biztonsági kód">
         </label><br>
+
+       <% if (locals.errors && locals.errors.length > 0) { %>
+            <ul style="color: red">
+                <% locals.errors.forEach(e => { %>
+                    <li><%= e %></li>
+                <% }) %>
+            </ul>
+        <% } %> 
         <button type="submit">Rendelés elküldése</button>
+        
         
 
     </form>
